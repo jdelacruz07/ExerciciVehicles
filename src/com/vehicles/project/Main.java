@@ -1,41 +1,55 @@
 package com.vehicles.project;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 import com.sun.xml.internal.bind.v2.model.core.MaybeElement;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Dame la matricula del cotxe ");	
-		String matriculaCotxe = sc.nextLine();
+		String plateCar = sc.nextLine();
 		
 		System.out.print("Dame la marca del cotxe ");	
-		String marcaCotxe = sc.nextLine();
+		String brandCar = sc.nextLine();
 		
 		System.out.print("Dame el color del cotxe");	
-		String colorCotxe = sc.nextLine();
+		String colorCar = sc.nextLine();
 		
-		Car carone = new Car(matriculaCotxe, marcaCotxe, colorCotxe);
+		Car carone = new Car(plateCar, brandCar, colorCar);
 		
 		System.out.print("Dame la marca de las ruedas traseras");
-		String marcaRuedasTraseras = sc.next();
+		String brandBackWheel = sc.next();
 		System.out.print("Dame el diametro de las ruedas traseras ");
-		double diametroRuedasTraseras = sc.nextDouble();
+		double diameterBackWheel = sc.nextDouble();
 						
 		System.out.print("Dame la marca de las ruedas delanteras ");	
-		String marcaRuedasDelanteras = sc.next();
+		String brandFrontWheel = sc.next();
 		System.out.print("Dame el diametro de las ruedas delanteras ");
-		double diametroRuedasDelanteras = sc.nextDouble();
+		double diameterFrontWheel = sc.nextDouble();
+
+		Wheel backWheel = new Wheel(brandBackWheel, diameterBackWheel);
+		Wheel frontwheel = new Wheel(brandFrontWheel, diameterFrontWheel);
 		
-		Wheel wheelTrasera = new Wheel(marcaRuedasTraseras,diametroRuedasTraseras );
-		Wheel wheelDelantera = new Wheel(marcaRuedasDelanteras,diametroRuedasDelanteras );
+		List <Wheel> backWheels = new ArrayList<>();
+		List <Wheel> frontWheels = new ArrayList<>();
+
+		backWheels.add(backWheel);
+		backWheels.add(backWheel);
+		frontWheels.add(frontwheel);
+		frontWheels.add(frontwheel);
+		
+		carone.addWheels(frontWheels, backWheels);
+
+	}
 
 		
 		
 		
-	}
+	
 
 }
