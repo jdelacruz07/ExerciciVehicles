@@ -7,12 +7,7 @@ public class Wheel {
 	public Wheel(String brand, double diameter) {
 		this.brand = brand;
 		this.diameter = diameter;
-		
-		
 	}
-
-	
-	
 
 	@Override
 	public boolean equals(Object obj) {
