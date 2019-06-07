@@ -13,8 +13,21 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("1) Vols crear un Bike ");
+		System.out.println("2) Vols crear un Car ");
+		System.out.println("3) Vols crear una Moto ");
+		int seleccion = sc.nextInt();
+		while (seleccion !=1 && seleccion != 2 && seleccion != 3) {
+			System.out.println("1) Vols crear una Bike ");
+			System.out.println("2) Vols crear un Car ");
+			System.out.println("3) Vols crear una Moto ");
+			seleccion = sc.nextInt();
+		}
+				
+		if (seleccion == 2)
 		System.out.print("Dame la matricula del cotxe ");	
-		String plateCar = sc.nextLine();
+		String plateCar = sc.next();
 		
 		String verifyPlate = plateCar.replaceAll(" ", "");
 		int countchars = verifyPlate.length();
