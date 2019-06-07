@@ -27,8 +27,5 @@ public class Wheel {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
+
 }
