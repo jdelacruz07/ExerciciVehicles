@@ -16,15 +16,13 @@ public class Main {
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-
-		System.out.println("1) Vols crear un cotxe ");
-		System.out.println("2) Vols crear una moto ");
-		seleccion = sc.nextInt();
-		while (seleccion != 1 && seleccion != 2) {
+		
+		do {
 			System.out.println("1) Vols crear un cotxe ");
-			System.out.println("2) Vols crear una Moto ");
+			System.out.println("2) Vols crear una moto ");
 			seleccion = sc.nextInt();
-		}
+			
+		} 	while (seleccion != 1 && seleccion != 2); 
 
 		System.out.print("Dame la matricula del vehicle ");
 		String plateCar = sc.next();
@@ -88,47 +86,35 @@ public class Main {
 
 		System.out.print("Dame la marca de la rueda trasera izquierda");
 		String brandBackWheel = sc.next();
-		System.out.print("Dame el diametro de la rueda trasera izquierda ");
-		double diameterBackWheel = sc.nextDouble();
-		while (diameterBackWheel <= .4 || diameterBackWheel >= 4) {
-			System.out.print("Dame la marca de la rueda trasera izquierda");
-			brandBackWheel = sc.next();
+		double diameterBackWheel = 0.0;
+		do {
 			System.out.print("Dame el diametro de la rueda trasera izquierda ");
-			diameterBackWheel = sc.nextDouble();
-		}
-
+		} while (diameterBackWheel <= .4 || diameterBackWheel >= 4);
+		
 		System.out.print("Dame la marca de la ruedas trasera derecha");
 		String brandBackWheelRight = sc.next();
-		System.out.print("Dame el diametro de la rueda trasera derecha ");
-		double diameterBackWheelRight = sc.nextDouble();
-		while (diameterBackWheelRight <= .4 || diameterBackWheelRight >= 4) {
-			System.out.print("Dame la marca de la ruedas trasera derecha");
-			brandBackWheelRight = sc.next();
+		double diameterBackWheelRight =  0.0;
+		do {
 			System.out.print("Dame el diametro de la rueda trasera derecha ");
 			diameterBackWheelRight = sc.nextDouble();
-		}
+		} while (diameterBackWheelRight <= .4 || diameterBackWheelRight >= 4);
 
 		System.out.print("Dame la marca de la rueda delantera izquierda ");
 		String brandFrontWheel = sc.next();
-		System.out.print("Dame el diametro de la rueda delantera izquierda ");
-		double diameterFrontWheel = sc.nextDouble();
-		while (diameterFrontWheel <= .4 || diameterFrontWheel >= 4) {
-			System.out.print("Dame la marca de la rueda delantera izquierda ");
-			brandFrontWheel = sc.next();
+		double diameterFrontWheel = 0.0;
+		do {
 			System.out.print("Dame el diametro de la rueda delantera izquierda ");
 			diameterFrontWheel = sc.nextDouble();
-		}
-
+		} while (diameterFrontWheel <= .4 || diameterFrontWheel >= 4);
+		
 		System.out.print("Dame la marca de la rueda delantera derecha ");
 		String brandFrontWheelRight = sc.next();
-		System.out.print("Dame el diametro de la rueda delantera derecha ");
-		double diameterFrontWheelRight = sc.nextDouble();
-		while (diameterFrontWheelRight <= .4 || diameterFrontWheelRight >= 4) {
-			System.out.print("Dame la marca de la rueda delantera derecha ");
-			brandFrontWheelRight = sc.next();
+		double diameterFrontWheelRight = 0.0;
+		do {
 			System.out.print("Dame el diametro de la rueda delantera derecha ");
 			diameterFrontWheelRight = sc.nextDouble();
-		}
+		} while (diameterFrontWheelRight <= .4 || diameterFrontWheelRight >= 4);
+			
 
 		Wheel backWheel = new Wheel(brandBackWheel, diameterBackWheel);
 		Wheel backWheelRight = new Wheel(brandBackWheelRight, diameterBackWheelRight);
@@ -148,21 +134,20 @@ public class Main {
 
 		System.out.print("Dame la marca de la rueda trasera ");
 		String brandBackWheel = sc.next();
-		System.out.print("Dame el diametro de la rueda trasera ");
-		double diameterBackWheel = sc.nextDouble();
-		while (diameterBackWheel <= .4 || diameterBackWheel >= 4) {
+		double diameterBackWheel = 0.0;
+		do {
 			System.out.print("Dame el diametro de la rueda trasera  ");
 			diameterBackWheel = sc.nextDouble();
-		}
+		} while (diameterBackWheel <= .4 || diameterBackWheel >= 4);
+		
 
 		System.out.print("Dame la marca de la rueda delantera ");
 		String brandFrontWheel = sc.next();
-		System.out.print("Dame el diametro de la rueda delantera ");
-		double diameterFrontWheel = sc.nextDouble();
-		while (diameterFrontWheel <= .4 || diameterFrontWheel >= 4) {
+		double diameterFrontWheel = 0.0;
+		do {
 			System.out.print("Dame el diametro de la rueda delantera ");
-			diameterFrontWheel = sc.nextDouble();
-		}
+			diameterFrontWheel = sc.nextDouble();	
+		} while (diameterFrontWheel <= .4 || diameterFrontWheel >= 4);
 
 		Wheel backWheel = new Wheel(brandBackWheel, diameterBackWheel);
 
