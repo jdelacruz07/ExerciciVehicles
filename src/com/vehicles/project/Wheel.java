@@ -1,5 +1,8 @@
 package com.vehicles.project;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Wheel {
 	private String brand;
 	private double diameter;
@@ -11,6 +14,20 @@ public class Wheel {
 		
 	}
 
+	public void makeWheel(String brand, double diameter, boolean isTrasera) throws Exception {
+		
+		List<Wheel> backWheelss = new ArrayList<>();
+		List<Wheel> frontWheelss = new ArrayList<>();
+		if (isTrasera) {
+			Wheel wheelBack = new Wheel(brand, diameter);
+			backWheelss.add(wheelBack);
+		} else {
+		Wheel wheelFront = new Wheel(brand, diameter);
+		frontWheelss.add(wheelFront);
+		}
+		Car car = new Car();
+		car.addWheels(frontWheelss, backWheelss);
+	}
 	
 	
 
