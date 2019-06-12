@@ -62,8 +62,8 @@ public class Main {
 		System.out.print("Dame el diametro de la rueda trasera derecha ");
 		double diameterBackWheelRight = sc.nextDouble();
 		while (diameterBackWheelRight <= .4 || diameterBackWheelRight >= 4) {
-			System.out.print("Dame el diametro de la rueda trasera izquierda ");
-			diameterBackWheel = sc.nextDouble();
+			System.out.print("Dame el diametro de la rueda trasera derecha ");
+			diameterBackWheelRight = sc.nextDouble();
 		}
 		
 		System.out.print("Dame la marca de la rueda delantera izquierda ");	
@@ -72,7 +72,7 @@ public class Main {
 		double diameterFrontWheel = sc.nextDouble();
 		while (diameterFrontWheel <= .4 || diameterFrontWheel >= 4) {
 			System.out.print("Dame el diametro de la rueda trasera izquierda ");
-			diameterBackWheel = sc.nextDouble();
+			diameterFrontWheel = sc.nextDouble();
 		}
 		
 		System.out.print("Dame la marca de la rueda delantera derecha ");	
@@ -80,8 +80,8 @@ public class Main {
 		System.out.print("Dame el diametro de la rueda delantera derecha ");
 		double diameterFrontWheelRight = sc.nextDouble();
 		while (diameterFrontWheelRight <= .4 || diameterFrontWheelRight >= 4) {
-			System.out.print("Dame el diametro de la rueda trasera izquierda ");
-			diameterBackWheel = sc.nextDouble();
+			System.out.print("Dame el diametro de la rueda trasera derecha ");
+			diameterFrontWheelRight = sc.nextDouble();
 		}
 
 		Car carone = new Car(plateCar, brandCar, colorCar);
