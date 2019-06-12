@@ -65,18 +65,13 @@ public class Main {
 
 		if (seleccion == 1) {
 			wheelInformation();
-		} else {
-			wheelInformationMoto();
-		}
-
-		if (seleccion == 1) {
 			Car carone = new Car(plateCar, brandCar, colorCar);
 			carone.addWheels(frontWheelss, backWheelss);
 		} else {
+			wheelInformationMoto();
 			Bike bike = new Bike(plateCar, brandCar, colorCar);
 			bike.addWheels(frontWheelss, backWheelss, seleccion);
 		}
-
 
 	}
 
@@ -89,9 +84,10 @@ public class Main {
 		double diameterBackWheel = 0.0;
 		do {
 			System.out.print("Dame el diametro de la rueda trasera izquierda ");
+			diameterBackWheel = sc.nextDouble();
 		} while (diameterBackWheel <= .4 || diameterBackWheel >= 4);
 		
-		System.out.print("Dame la marca de la ruedas trasera derecha");
+		System.out.print("Dame la marca de la rueda trasera derecha");
 		String brandBackWheelRight = sc.next();
 		double diameterBackWheelRight =  0.0;
 		do {

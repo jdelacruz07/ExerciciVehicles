@@ -9,7 +9,7 @@ public class Bike extends Vehicle {
 	}
 
 	public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels, int seleccion) throws Exception {
-		if (seleccion == 1) {
+		if (seleccion == 3) {
 			addTwoWheels(frontWheels);
 			addTwoWheels(backWheels);
 		} else {
