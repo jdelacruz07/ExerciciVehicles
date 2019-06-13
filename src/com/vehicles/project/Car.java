@@ -9,13 +9,12 @@ public class Car extends Vehicle {
 	public Car(String plate, String brand, String color) {
 		super(plate, brand, color);
 	}
-	
+
 	public Car() {
 		super(null, null, null);
 	}
 
-	public  boolean verifyPlate(String plate)  {
-		
+	public boolean verifyPlate(String plate) {
 
 		String plateSense = plate.replaceAll(" ", "");
 		int countchars = plateSense.length();
@@ -31,7 +30,7 @@ public class Car extends Vehicle {
 		}
 		boolean plateIsCorrect = false;
 		if (countDigits == 4 && (countAlphabetic == 2 || countAlphabetic == 3)) {
-			//ingresaDatos(plate);
+			// ingresaDatos(plate);
 			plateIsCorrect = true;
 		} else {
 			plateIsCorrect = false;
@@ -40,7 +39,6 @@ public class Car extends Vehicle {
 		return plateIsCorrect;
 	}
 
-	
 	public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels) throws Exception {
 		addTwoWheels(frontWheels);
 		addTwoWheels(backWheels);

@@ -10,25 +10,38 @@ public class Wheel {
 	public Wheel(String brand, double diameter) {
 		this.brand = brand;
 		this.diameter = diameter;
-		
-		
+
 	}
 
-	public void makeWheel(String brand, double diameter, boolean isTrasera) throws Exception {
-		
+	public void makeWheel(String brandBackWheel, double diameterBackWheel, String brandBackWheelRight,
+			double diameterBackWheelRight, String brandFrontWheel, double diameterFrontWheel,
+			String brandFrontWheelRight, double diameterFrontWheelRight, String plate, String brand, String color)
+			throws Exception {
+
 		List<Wheel> backWheelss = new ArrayList<>();
 		List<Wheel> frontWheelss = new ArrayList<>();
-		if (isTrasera) {
-			Wheel wheelBack = new Wheel(brand, diameter);
-			backWheelss.add(wheelBack);
-		} else {
-		Wheel wheelFront = new Wheel(brand, diameter);
+		Wheel wheelBack = new Wheel(brandBackWheel, diameterBackWheel);
+		backWheelss.add(wheelBack);
+		Wheel wheelBackRight = new Wheel(brandBackWheelRight, diameterBackWheelRight);
+		backWheelss.add(wheelBackRight);
+		Wheel wheelFront = new Wheel(brandFrontWheel, diameterFrontWheel);
 		frontWheelss.add(wheelFront);
-		}
+		Wheel wheelFrontRight = new Wheel(brandFrontWheelRight, diameterFrontWheelRight);
+		frontWheelss.add(wheelFrontRight);
+
 		Car car = new Car();
 		car.addWheels(frontWheelss, backWheelss);
 	}
 	
+	public  boolean verifyDiameter (double diameter) {
+		boolean isCorrect = false;
+		if (diameter <= .4 || diameter >= 4) {
+			isCorrect = true;
+		} else {
+			isCorrect = false;
+		}
+		return isCorrect;
+	}
 	
 
 	@Override
@@ -49,8 +62,5 @@ public class Wheel {
 			return false;
 		return true;
 	}
-	
-	
-	
-	
+
 }
