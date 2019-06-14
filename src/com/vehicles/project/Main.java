@@ -33,8 +33,7 @@ public class Main {
 		boolean plateIsCorrect = car.verifyPlate(plate);
 		while (!plateIsCorrect) {
 			System.out.println("Matricula Incorrecta ");
-			System.out.println("Dame la matricula del cotxe ");
-			plate = sc.nextLine();
+			plate = sc.next();
 			plateIsCorrect = car.verifyPlate(plate);
 		}
 		if (seleccion == 1) {
@@ -61,13 +60,12 @@ public class Main {
 		String brandBackWheel = sc.next();
 		System.out.print("Dame el diametro de la rueda trasera izquierda ");
 		double diameterBackWheel = sc.nextDouble();
-
 		while (wheel.verifyDiameter(diameterBackWheel) == false) {
 			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda trasera izquierda ");
 			diameterBackWheel = sc.nextDouble();
 		}
-
-		System.out.print("Dame la marca de la ruedas trasera derecha");
+		
+		System.out.print("Dame la marca de la rueda trasera derecha");
 		String brandBackWheelRight = sc.next();
 		System.out.print("Dame el diametro de la rueda trasera derecha ");
 		double diameterBackWheelRight = sc.nextDouble();
