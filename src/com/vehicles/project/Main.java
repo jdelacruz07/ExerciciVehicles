@@ -20,17 +20,24 @@ public class Main {
 		Car car = new Car();
 
 		boolean plateIsCorrect = car.verifyPlate(plate);
-		if (plateIsCorrect == true) {
-			ingresaDatos(plate);
-		} else {
+		while (plateIsCorrect == false) {
 			System.out.println("Matricula Incorrecta ");
-		}
+			System.out.println("Dame la matricula del cotxe ");
+			plate = sc.nextLine();
+			plateIsCorrect = car.verifyPlate(plate);
+		} 
+		
+		ingresaDatos(plate);
+		
+
 
 	}
 
 	public static void ingresaDatos(String plate) throws Exception {
 		Scanner sc = new Scanner(System.in);
-		Wheel whell = new Wheel(null, 0);
+		Wheel wheel = new Wheel(null, 0);
+		Car car = new Car();
+
 		System.out.print("Dame la marca del cotxe ");
 		String brand = sc.nextLine();
 
@@ -44,7 +51,7 @@ public class Main {
 		System.out.print("Dame el diametro de la rueda trasera izquierda ");
 		double diameterBackWheel = sc.nextDouble();
 
-		while (whell.verifyDiameter(diameterBackWheel)) {
+		while (wheel.verifyDiameter(diameterBackWheel)) {
 			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda trasera izquierda ");
 			diameterBackWheel = sc.nextDouble();
 		}
@@ -54,7 +61,7 @@ public class Main {
 		isTrasera = true;
 		System.out.print("Dame el diametro de la rueda trasera derecha ");
 		double diameterBackWheelRight = sc.nextDouble();
-		while (whell.verifyDiameter(diameterBackWheelRight)) {
+		while (wheel.verifyDiameter(diameterBackWheelRight)) {
 			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda trasera derecha");
 			diameterBackWheelRight = sc.nextDouble();
 		}
@@ -64,7 +71,7 @@ public class Main {
 		isTrasera = false;
 		System.out.print("Dame el diametro de la rueda delantera izquierda ");
 		double diameterFrontWheel = sc.nextDouble();
-		while (whell.verifyDiameter(diameterFrontWheel)) {
+		while (wheel.verifyDiameter(diameterFrontWheel)) {
 			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda delantera izquierda ");
 			diameterFrontWheel = sc.nextDouble();
 		}
@@ -74,14 +81,13 @@ public class Main {
 		isTrasera = false;
 		System.out.print("Dame el diametro de la rueda delantera derecha ");
 		double diameterFrontWheelRight = sc.nextDouble();
-		while (whell.verifyDiameter(diameterFrontWheelRight)) {
+		while (wheel.verifyDiameter(diameterFrontWheelRight)) {
 			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda delantera derecha ");
 			diameterFrontWheelRight = sc.nextDouble();
 		}
 
-		Wheel wheel = new Wheel(null, 0);
 
-		wheel.makeWheel(brandBackWheel, diameterBackWheel, brandBackWheelRight, diameterBackWheelRight, brandFrontWheel,
+		car.makeWheel(brandBackWheel, diameterBackWheel, brandBackWheelRight, diameterBackWheelRight, brandFrontWheel,
 				diameterFrontWheel, brandFrontWheelRight, diameterFrontWheelRight, plate, brand, color);
 
 	}

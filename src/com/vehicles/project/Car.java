@@ -39,6 +39,27 @@ public class Car extends Vehicle {
 		return plateIsCorrect;
 	}
 
+	public void makeWheel(String brandBackWheel, double diameterBackWheel, String brandBackWheelRight,
+			double diameterBackWheelRight, String brandFrontWheel, double diameterFrontWheel,
+			String brandFrontWheelRight, double diameterFrontWheelRight, String plate, String brand, String color)
+			throws Exception {
+
+		List<Wheel> backWheelss = new ArrayList<>();
+		List<Wheel> frontWheelss = new ArrayList<>();
+		Wheel wheelBack = new Wheel(brandBackWheel, diameterBackWheel);
+		backWheelss.add(wheelBack);
+		Wheel wheelBackRight = new Wheel(brandBackWheelRight, diameterBackWheelRight);
+		backWheelss.add(wheelBackRight);
+		Wheel wheelFront = new Wheel(brandFrontWheel, diameterFrontWheel);
+		frontWheelss.add(wheelFront);
+		Wheel wheelFrontRight = new Wheel(brandFrontWheelRight, diameterFrontWheelRight);
+		frontWheelss.add(wheelFrontRight);
+
+		
+		addWheels(frontWheelss, backWheelss);
+	}
+	
+	
 	public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels) throws Exception {
 		addTwoWheels(frontWheels);
 		addTwoWheels(backWheels);
