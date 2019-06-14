@@ -8,11 +8,15 @@ public class Bike extends Vehicle {
 		super(plate, brand, color);
 	}
 
-	public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels) throws Exception {
-			addTwoWheels(frontWheels);
-			addTwoWheels(backWheels);
+	public void addOneWheels(Wheel wheelMoto) throws Exception {
+
+		this.wheels.add(wheelMoto);
 	}
-	
+
+	public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels) throws Exception {
+		addTwoWheels(frontWheels);
+		addTwoWheels(backWheels);
+	}
 
 	public void addTwoWheels(List<Wheel> wheels) throws Exception {
 
@@ -29,15 +33,5 @@ public class Bike extends Vehicle {
 		this.wheels.add(rightWheel);
 	}
 
-	public void addOneWheels(Wheel wheelMoto) throws Exception {
-
-//		if (wheel.size() != 1)
-//			throw new Exception();
-
-//		Wheel wheel = new Wheel(wheelMoto);
-//		Wheel backWheel = wheels.get(1);
-
-		this.wheels.add(wheelMoto);
-//		this.wheels.add(backWheel);
-	}
 }
+ 
