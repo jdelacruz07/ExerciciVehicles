@@ -20,29 +20,28 @@ public class Main {
 		Car car = new Car();
 
 		boolean plateIsCorrect = car.verifyPlate(plate);
-		while (plateIsCorrect == false) {
+		while (!plateIsCorrect) {
 			System.out.println("Matricula Incorrecta ");
 			System.out.println("Dame la matricula del cotxe ");
 			plate = sc.nextLine();
 			plateIsCorrect = car.verifyPlate(plate);
-		} 
-		
-		ingresaDatos(plate);
-		
+		}
 
+		ingresaDatos(plate);
 
 	}
 
 	public static void ingresaDatos(String plate) throws Exception {
 		Scanner sc = new Scanner(System.in);
 		Wheel wheel = new Wheel(null, 0);
-		Car car = new Car();
 
 		System.out.print("Dame la marca del cotxe ");
 		String brand = sc.nextLine();
 
 		System.out.print("Dame el color del cotxe");
 		String color = sc.nextLine();
+
+		Car car = new Car(plate, brand, color);
 
 		boolean isTrasera = false;
 		System.out.print("Dame la marca de la rueda trasera izquierda");
@@ -86,9 +85,21 @@ public class Main {
 			diameterFrontWheelRight = sc.nextDouble();
 		}
 
+		List<Wheel> backWheelss = new ArrayList<>();
+		List<Wheel> frontWheelss = new ArrayList<>();
 
-		car.makeWheel(brandBackWheel, diameterBackWheel, brandBackWheelRight, diameterBackWheelRight, brandFrontWheel,
-				diameterFrontWheel, brandFrontWheelRight, diameterFrontWheelRight, plate, brand, color);
+		Wheel wheelBack = new Wheel(brandBackWheel, diameterBackWheel);
+		backWheelss.add(wheelBack);
+		Wheel wheelFront = new Wheel(brandFrontWheel, diameterFrontWheel);
+		frontWheelss.add(wheelFront);
+		Wheel wheelBackRight = new Wheel(brandBackWheelRight, diameterBackWheelRight);
+		backWheelss.add(wheelBackRight);
+		Wheel wheelFrontRight = new Wheel(brandFrontWheelRight, diameterFrontWheelRight);
+		frontWheelss.add(wheelFrontRight);
+
+		car.addWheels(frontWheelss, backWheelss);
+		System.out.println(backWheelss.size());
+		System.out.println(frontWheelss.size());
 
 	}
 

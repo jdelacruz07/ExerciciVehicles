@@ -13,9 +13,7 @@ public class Wheel {
 
 	}
 
-	
-	
-	public  boolean verifyDiameter (double diameter) {
+	public boolean verifyDiameter(double diameter) {
 		boolean isCorrect = false;
 		if (diameter <= .4 || diameter >= 4) {
 			isCorrect = true;
@@ -24,7 +22,6 @@ public class Wheel {
 		}
 		return isCorrect;
 	}
-	
 
 	@Override
 	public boolean equals(Object obj) {
