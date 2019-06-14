@@ -13,6 +13,18 @@ public class Bike extends Vehicle {
 		this.wheels.add(wheelMoto);
 	}
 
+	public boolean verifyDiameter(double diameter) {
+		boolean isCorrect = false;
+		if (diameter <= .4 || diameter >= 4) {
+			isCorrect = false;
+		} else {
+			isCorrect = true;
+		}
+
+		return isCorrect;
+
+	}
+
 	public void addWheels(List<Wheel> frontWheels, List<Wheel> backWheels) throws Exception {
 		addTwoWheels(frontWheels);
 		addTwoWheels(backWheels);
@@ -34,4 +46,3 @@ public class Bike extends Vehicle {
 	}
 
 }
- 

@@ -13,6 +13,10 @@ public class Wheel {
 
 	}
 
+	public Wheel() {
+		
+	}
+
 	public boolean verifyDiameter(double diameter) {
 		boolean isCorrect = false;
 		if (diameter <= .4 || diameter >= 4) {
