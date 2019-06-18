@@ -14,6 +14,7 @@ public class Main {
 	static int seleccion = 0;
 
 	static Scanner sc = new Scanner(System.in);
+
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
@@ -52,72 +53,64 @@ public class Main {
 		Wheel wheel = new Wheel();
 		Car car = new Car(plate, brand, color);
 
-		System.out.print("Dame la marca de la rueda trasera izquierda");
-		String brandBackWheel = sc.next();
-		System.out.print("Dame el diametro de la rueda trasera izquierda ");
-		double diameterBackWheel = sc.nextDouble();
-
-		System.out.print("Dame la marca de la rueda trasera derecha");
-		String brandBackWheelRight = sc.next();
-		System.out.print("Dame el diametro de la rueda trasera derecha ");
-		double diameterBackWheelRight = sc.nextDouble();
-
-		System.out.print("Dame la marca de la rueda delantera izquierda ");
-		String brandFrontWheel = sc.next();
-		System.out.print("Dame el diametro de la rueda delantera izquierda ");
-		double diameterFrontWheel = sc.nextDouble();
-
-		System.out.print("Dame la marca de la rueda delantera derecha ");
-		String brandFrontWheelRight = sc.next();
-		System.out.print("Dame el diametro de la rueda delantera derecha ");
-		double diameterFrontWheelRight = sc.nextDouble();
+		List<String> brandWheelArray = new ArrayList<>();
+		List<Double> diameterWheelArray = new ArrayList<>();
+		for (int i = 0; i < 4; i++) {
+			brandWheelArray.add(brandRueda());
+			diameterWheelArray.add(diameterRueda());
+		}
 
 		List<Wheel> backWheelss = new ArrayList<>();
 		List<Wheel> frontWheelss = new ArrayList<>();
 
-		Wheel wheelBack = new Wheel(brandBackWheel, diameterBackWheel);
-		backWheelss.add(wheelBack);
-		Wheel wheelBackRight = new Wheel(brandBackWheelRight, diameterBackWheelRight);
-		backWheelss.add(wheelBackRight);
-		Wheel wheelFront = new Wheel(brandFrontWheel, diameterFrontWheel);
-		frontWheelss.add(wheelFront);
-		Wheel wheelFrontRight = new Wheel(brandFrontWheelRight, diameterFrontWheelRight);
-		frontWheelss.add(wheelFrontRight);
+		for (int i = 0; i < brandWheelArray.size()/2; i++) {
+			Wheel wheelBack = new Wheel(brandWheelArray.get(i), diameterWheelArray.get(i));
+			backWheelss.add(wheelBack);
+		}
+		for (int i = 2; i < brandWheelArray.size(); i++) {
+			Wheel wheelBack = new Wheel(brandWheelArray.get(i), diameterWheelArray.get(i));
+			frontWheelss.add(wheelBack);
+		}
 
 		car.addWheels(frontWheelss, backWheelss);
-		System.out.println(backWheelss.size());
-		System.out.println(frontWheelss.size());
 
 	}
 
 	public static void ingresaDatosMoto(String plate, String brand, String color) throws Exception {
-		Wheel wheel = new Wheel();
 		Bike bike = new Bike();
-		
-		System.out.print("Dame la marca de la rueda trasera ");
-		String brandBackWheel = sc.next();
 
-		System.out.print("Dame el diametro de la rueda trasera ");
-		double diameterBackWheel = sc.nextDouble();
-		wheel.verifyDiameter(diameterBackWheel);
-
-		System.out.print("Dame la marca de la rueda delantera ");
-		String brandFrontWheel = sc.next();
-
-		System.out.print("Dame el diametro de la rueda delantera ");
-		double diameterFrontWheel = sc.nextDouble();
-		wheel.verifyDiameter(diameterFrontWheel);
-
-		Wheel backWheel = new Wheel(brandBackWheel, diameterBackWheel);
-		Wheel frontWheel = new Wheel(brandFrontWheel, diameterFrontWheel);
-
-		bike.addOneWheels(backWheel);
-		bike.addOneWheels(frontWheel);
-	}
+		List<String> brandWheelArray = new ArrayList<>();
+		List<Double> diameterWheelArray = new ArrayList<>();
+		for (int i = 0; i < 2; i++) {
+			brandWheelArray.add(brandRueda());
+			diameterWheelArray.add(diameterRueda());
+		}
 	
-			
-		
-		
-			
-		
+		for (int i = 0; i < brandWheelArray.size(); i++) {
+			Wheel wheel = new Wheel(brandWheelArray.get(i), diameterWheelArray.get(i));
+			bike.addOneWheels(wheel);
+		}
+
+	}
+
+	public static String brandRueda() {
+
+		String brandWheel = null;
+		System.out.print("Dame la marca de la rueda ");
+		brandWheel = sc.next();
+
+		return brandWheel;
+
+	}
+
+	public static double diameterRueda() {
+
+		double diameter = 0;
+		System.out.print("Dame el diametro de la rueda ");
+		diameter = sc.nextDouble();
+
+		return diameter;
+
+	}
+
 }
