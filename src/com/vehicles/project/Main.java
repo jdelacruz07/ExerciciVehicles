@@ -13,10 +13,10 @@ public class Main {
 	// Crea el menu y valida la matricula
 	static int seleccion = 0;
 
+	static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
-		Scanner sc = new Scanner(System.in);
 		Car car = new Car();
 
 		do {
@@ -49,46 +49,28 @@ public class Main {
 	}
 
 	public static void ingresaDatos(String plate, String brand, String color) throws Exception {
-		Scanner sc = new Scanner(System.in);
 		Wheel wheel = new Wheel();
-
 		Car car = new Car(plate, brand, color);
 
 		System.out.print("Dame la marca de la rueda trasera izquierda");
 		String brandBackWheel = sc.next();
 		System.out.print("Dame el diametro de la rueda trasera izquierda ");
 		double diameterBackWheel = sc.nextDouble();
-		while (wheel.verifyDiameter(diameterBackWheel) == false) {
-			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda trasera izquierda ");
-			diameterBackWheel = sc.nextDouble();
-		}
 
 		System.out.print("Dame la marca de la rueda trasera derecha");
 		String brandBackWheelRight = sc.next();
 		System.out.print("Dame el diametro de la rueda trasera derecha ");
 		double diameterBackWheelRight = sc.nextDouble();
-		while (wheel.verifyDiameter(diameterBackWheelRight) == false) {
-			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda trasera derecha");
-			diameterBackWheelRight = sc.nextDouble();
-		}
 
 		System.out.print("Dame la marca de la rueda delantera izquierda ");
 		String brandFrontWheel = sc.next();
 		System.out.print("Dame el diametro de la rueda delantera izquierda ");
 		double diameterFrontWheel = sc.nextDouble();
-		while (wheel.verifyDiameter(diameterFrontWheel) == false) {
-			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda delantera izquierda ");
-			diameterFrontWheel = sc.nextDouble();
-		}
 
 		System.out.print("Dame la marca de la rueda delantera derecha ");
 		String brandFrontWheelRight = sc.next();
 		System.out.print("Dame el diametro de la rueda delantera derecha ");
 		double diameterFrontWheelRight = sc.nextDouble();
-		while (wheel.verifyDiameter(diameterFrontWheelRight) == false) {
-			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda delantera derecha ");
-			diameterFrontWheelRight = sc.nextDouble();
-		}
 
 		List<Wheel> backWheelss = new ArrayList<>();
 		List<Wheel> frontWheelss = new ArrayList<>();
@@ -109,29 +91,22 @@ public class Main {
 	}
 
 	public static void ingresaDatosMoto(String plate, String brand, String color) throws Exception {
-		Scanner sc = new Scanner(System.in);
-
-		Bike bike = new Bike(plate, brand, color);
-
+		Wheel wheel = new Wheel();
+		Bike bike = new Bike();
+		
 		System.out.print("Dame la marca de la rueda trasera ");
 		String brandBackWheel = sc.next();
 
 		System.out.print("Dame el diametro de la rueda trasera ");
 		double diameterBackWheel = sc.nextDouble();
-		while (!bike.verifyDiameter(diameterBackWheel)) {
-			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda trasera ");
-			diameterBackWheel = sc.nextDouble();
-		}
+		wheel.verifyDiameter(diameterBackWheel);
 
 		System.out.print("Dame la marca de la rueda delantera ");
 		String brandFrontWheel = sc.next();
 
 		System.out.print("Dame el diametro de la rueda delantera ");
 		double diameterFrontWheel = sc.nextDouble();
-		while (!bike.verifyDiameter(diameterFrontWheel)) {
-			System.out.print("Diametro superior a .4 e inferior a 4 para la rueda delantera ");
-			diameterFrontWheel = sc.nextDouble();
-		}
+		wheel.verifyDiameter(diameterFrontWheel);
 
 		Wheel backWheel = new Wheel(brandBackWheel, diameterBackWheel);
 		Wheel frontWheel = new Wheel(brandFrontWheel, diameterFrontWheel);
@@ -139,4 +114,10 @@ public class Main {
 		bike.addOneWheels(backWheel);
 		bike.addOneWheels(frontWheel);
 	}
+	
+			
+		
+		
+			
+		
 }

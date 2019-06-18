@@ -7,7 +7,8 @@ public class Wheel {
 	private String brand;
 	private double diameter;
 
-	public Wheel(String brand, double diameter) {
+	public Wheel(String brand, double diameter) throws Exception {
+		this.verifyDiameter(diameter);
 		this.brand = brand;
 		this.diameter = diameter;
 
@@ -17,15 +18,10 @@ public class Wheel {
 		
 	}
 
-	public boolean verifyDiameter(double diameter) {
-		boolean isCorrect = false;
-		if (diameter <= .4 || diameter >= 4) {
-			isCorrect = false;
-		} else {
-			isCorrect = true;
-		}
-
-		return isCorrect;
+	public void verifyDiameter(double diameter) throws Exception {
+		if (diameter <= .4 || diameter >= 4) 
+			throw new Exception("Diametro incorrecto");
+		
 
 	}
 

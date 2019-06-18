@@ -17,7 +17,6 @@ public class Car extends Vehicle {
 	public boolean verifyPlate(String plate) {
 
 		String plateSense = plate.replaceAll(" ", "");
-		int countchars = plateSense.length();
 		char[] verifyPlate2 = plateSense.toCharArray();
 		int countDigits = 0;
 		int countAlphabetic = 0;
