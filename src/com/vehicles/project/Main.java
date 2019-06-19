@@ -14,18 +14,12 @@ public class Main {
 	static int seleccion = 0;
 
 	static Scanner sc = new Scanner(System.in);
-// Mege con remote
-// Mege con remote
-// Mege con remote
-// Mege con remote
-// Mege con remote
-// Mege con remote
-// Mege con remote
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
 
 		Car car = new Car();
 //Subiendo al git desde home
+// Ciclo completo
 		do {
 			System.out.println("1) Vols crear un cotxe ");
 			System.out.println("2) Vols crear una moto ");
