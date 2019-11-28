@@ -22,11 +22,4 @@ public class MainTest {
 		assertEquals(wordOne, wordTwo);
 	}
 
-	@Test 
-	public void verifyDiameterTest() {
-		Bike bike = new Bike();
-		boolean isTrue = bike.verifyDiameter(.5);
-		assertEquals(true, isTrue);
-	}
-
 }
