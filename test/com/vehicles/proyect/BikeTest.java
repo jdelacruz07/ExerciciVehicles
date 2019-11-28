@@ -11,7 +11,7 @@ public class BikeTest {
 	@Test 
 	public void verifyDiameterTest() {
 		Bike bike = new Bike();
-		boolean isTrue = bike.verifyDiameter(.5);
+		boolean isTrue = bike.verifyDiameter(.6);
 		assertEquals(true, isTrue);
 	}
 
