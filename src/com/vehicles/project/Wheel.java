@@ -1,8 +1,5 @@
 package com.vehicles.project;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Wheel {
 	private String brand;
 	private double diameter;
@@ -11,18 +8,15 @@ public class Wheel {
 		this.verifyDiameter(diameter);
 		this.brand = brand;
 		this.diameter = diameter;
-
 	}
 
 	public Wheel() {
-		
+
 	}
 
 	public void verifyDiameter(double diameter) throws Exception {
-		if (diameter <= .4 || diameter >= 4) 
+		if (diameter <= .4 || diameter >= 4)
 			throw new Exception("Diametro incorrecto");
-		
-
 	}
 
 	@Override

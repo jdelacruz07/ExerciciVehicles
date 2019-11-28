@@ -1,116 +1,74 @@
 package com.vehicles.project;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
-
-import com.sun.xml.internal.bind.v2.model.core.MaybeElement;
-import com.sun.xml.internal.fastinfoset.util.CharArrayString;
-import com.sun.xml.internal.fastinfoset.util.StringArray;
 
 public class Main {
 
-	// Crea el menu y valida la matricula
-	static int seleccion = 0;
-
 	static Scanner sc = new Scanner(System.in);
-	public static void main(String[] args) throws Exception {
-		// TODO Auto-generated method stub
 
+	public static void main(String[] args) throws Exception {
+		Bike bike = new Bike();
 		Car car = new Car();
-//Subiendo al git desde home
-// Ciclo completo
+		
+		int selection = selectionVehicle();
+
+		String plate = askInformationString("Dame la matricula del vehicle "); 
+		plate = plateCorrect(plate);
+
+		String brand = askInformationString("Dame la marca del vehicle"); 
+		String color = askInformationString("Dame el color del vehicle"); 
+		if (selection == 1) {
+			car.createCar(plate, brand, color);
+		} else {
+			bike.createBike(plate, brand, color);
+		}
+		System.out.println("Informacion correcta");
+	}
+
+	private static int selectionVehicle() {
+		int selection;
 		do {
 			System.out.println("1) Vols crear un cotxe ");
 			System.out.println("2) Vols crear una moto ");
-			seleccion = sc.nextInt();
-
-		} while (seleccion != 1 && seleccion != 2);
-
-		System.out.print("Dame la matricula del vehicle ");
-		String plate = sc.next();
-		boolean plateIsCorrect = car.verifyPlate(plate);
+			selection = sc.nextInt();
+		} while (selection != 1 && selection != 2);
+		return selection;
+	}
+	
+	private static String plateCorrect(String plate) {
+		boolean plateIsCorrect = verifyPlate(plate);
 		while (!plateIsCorrect) {
 			System.out.println("Matricula Incorrecta ");
-			plate = sc.next();
-			plateIsCorrect = car.verifyPlate(plate);
+			plate = askInformationString("Dame una matricula correcta"); 
+			plateIsCorrect = verifyPlate(plate);
 		}
-
-		System.out.print("Dame la marca del vehicle ");
-		String brand = sc.next();
-		System.out.print("Dame el color del vehicle ");
-		String color = sc.next();
-
-		if (seleccion == 1) {
-			ingresaDatos(plate, brand, color);
-		} else {
-			ingresaDatosMoto(plate, brand, color);
-		}
-
+		return plate;
 	}
-
-	public static void ingresaDatos(String plate, String brand, String color) throws Exception {
-		Wheel wheel = new Wheel();
-		Car car = new Car(plate, brand, color);
-
-		List<String> brandWheelArray = new ArrayList<>();
-		List<Double> diameterWheelArray = new ArrayList<>();
-		for (int i = 0; i < 4; i++) {
-			brandWheelArray.add(brandRueda());
-			diameterWheelArray.add(diameterRueda());
-		}
-
-		List<Wheel> backWheelss = new ArrayList<>();
-		List<Wheel> frontWheelss = new ArrayList<>();
-
-		for (int i = 0; i < brandWheelArray.size()/2; i++) {
-			Wheel wheelBack = new Wheel(brandWheelArray.get(i), diameterWheelArray.get(i));
-			backWheelss.add(wheelBack);
-		}
-		for (int i = 2; i < brandWheelArray.size(); i++) {
-			Wheel wheelBack = new Wheel(brandWheelArray.get(i), diameterWheelArray.get(i));
-			frontWheelss.add(wheelBack);
-		}
-
-		car.addWheels(frontWheelss, backWheelss);
-
-	}
-
-	public static void ingresaDatosMoto(String plate, String brand, String color) throws Exception {
-		Bike bike = new Bike();
-
-		List<String> brandWheelArray = new ArrayList<>();
-		List<Double> diameterWheelArray = new ArrayList<>();
-		for (int i = 0; i < 2; i++) {
-			brandWheelArray.add(brandRueda());
-			diameterWheelArray.add(diameterRueda());
-		}
 	
-		for (int i = 0; i < brandWheelArray.size(); i++) {
-			Wheel wheel = new Wheel(brandWheelArray.get(i), diameterWheelArray.get(i));
-			bike.addOneWheels(wheel);
+	public static  boolean verifyPlate(String plate) {
+		String plateSense = plate.replaceAll(" ", "");
+		char[] verifyPlate2 = plateSense.toCharArray();
+		int countDigits = 0;
+		int countAlphabetic = 0;
+		for (char c : verifyPlate2) {
+			if (Character.isDigit(c)) {
+				countDigits++;
+			} else {
+				countAlphabetic++;
+			}
 		}
-
+		boolean plateIsCorrect = false;
+		if (countDigits == 4 && (countAlphabetic == 2 || countAlphabetic == 3)) {
+			plateIsCorrect = true;
+		} else {
+			plateIsCorrect = false;
+		}
+		return plateIsCorrect;
 	}
-
-	public static String brandRueda() {
-
-		String brandWheel = null;
-		System.out.print("Dame la marca de la rueda ");
-		brandWheel = sc.next();
-
-		return brandWheel;
-
-	}
-
-	public static double diameterRueda() {
-
-		double diameter = 0;
-		System.out.print("Dame el diametro de la rueda ");
-		diameter = sc.nextDouble();
-
-		return diameter;
-
-	}
-
+	
+	public static String askInformationString(String data) {
+		System.out.println(data);
+		return sc.next();
+	} 
+	
 }
