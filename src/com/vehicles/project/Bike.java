@@ -15,16 +15,6 @@ public class Bike extends Vehicle {
 		super(null, null, null);
 	}
 
-	public boolean verifyDiameter(double diameter) {
-		boolean isCorrect = false;
-		if (diameter <= .4 || diameter >= 4) {
-			isCorrect = false;
-		} else {
-			isCorrect = true;
-		}
-		return isCorrect;
-	}
-
 	public void createBike(String plate, String brand, String color) throws Exception {
 		createWheels();
 	}

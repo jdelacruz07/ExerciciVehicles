@@ -14,9 +14,10 @@ public class Wheel {
 
 	}
 
-	public void verifyDiameter(double diameter) throws Exception {
+	public boolean verifyDiameter(double diameter) throws Exception {
 		if (diameter <= .4 || diameter >= 4)
 			throw new Exception("Diametro incorrecto");
+		return true;
 	}
 
 	@Override
